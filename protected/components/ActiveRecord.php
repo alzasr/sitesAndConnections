@@ -63,4 +63,29 @@ class ActiveRecord extends CActiveRecord
         return $values;
     }
 
+    public function lockTable()
+    {
+        $this->setTableAlias($this->tableSchema->name);
+        $sql = 'LOCK TABLES ' . $this->tableName() . ' AS ' . $this->tableAlias . ' WRITE';
+        $command = $this->dbConnection->createCommand($sql);
+        $command->execute();
+    }
+
+    public function unlockTable()
+    {
+        $sql = 'UNLOCK TABLES';
+        $command = $this->dbConnection->createCommand($sql);
+        $command->execute();
+    }
+
+    protected function addEqualCondition($field, $value)
+    {
+        $tableAlias = $this->tableAlias;
+        $criteria = new CDbCriteria();
+        $criteria->addCondition($tableAlias . '.' . $field . ' = :' . $field);
+        $criteria->params[':' . $field] = $value;
+        $this->dbCriteria->mergeWith($criteria);
+        return $this;
+    }
+
 }

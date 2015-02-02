@@ -12,7 +12,7 @@ class WebAdminProject extends SiteConnectionRelation
     public function rules()
     {
         return array(
-            array('web_admin_id, created', 'required'),
+            array('web_admin_id', 'required'),
             array('web_admin_id, project_id', 'numerical', 'integerOnly'=>true),
             array('web_admin_id, project_id, created', 'safe', 'on'=>'search'),
         );
@@ -42,5 +42,11 @@ class WebAdminProject extends SiteConnectionRelation
     {
         return parent::model($className);
     }
+
+    public function getConnectionIdFieldName()
+    {
+        return 'web_admin_id';
+    }
+
 
 }

@@ -23,6 +23,7 @@ class ConnectionController extends Controller
             $form = $type->getConnectionModel()->getFormModel(); /* @var $form ActiveRecordForm */
             $this->updateAttributesFromPost($form, false);
             $connection = $form->create(); /* @var $connection SiteConnection */
+            $this->redirect($this->createUrl('index'));
             $this->redirect($this->createUrl('view', array('connection_type_id' => $type->id, 'conection_id' => $connection->id)));
         }
     }

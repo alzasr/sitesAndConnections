@@ -1,26 +1,26 @@
 <?php
 
-class FtpProject extends SiteConnectionRelation
+class PmaProject extends SiteConnectionRelation
 {
 
-    public $ftp_id;
+    public $pma_id;
     public $project_id;
     public $created;
-    protected $_table = 'ftp_project';
+    protected $_table = 'pma_project';
 
     public function rules()
     {
         return array(
-            array('ftp_id, project_id', 'required'),
-            array('ftp_id, project_id', 'numerical', 'integerOnly' => true),
-            array('ftp_id, project_id, created', 'safe', 'on' => 'search'),
+            array('pma_id, project_id', 'required'),
+            array('pma_id, project_id', 'numerical', 'integerOnly' => true),
+            array('pma_id, project_id, created', 'safe', 'on' => 'search'),
         );
     }
 
     public function attributeLabels()
     {
         return array(
-            'ftp_id' => 'Идентификатор ftp',
+            'pma_id' => 'Идентификатор pma',
             'project_id' => 'Идентификатор проекта',
             'created' => 'Дата создания',
         );
@@ -29,12 +29,12 @@ class FtpProject extends SiteConnectionRelation
     public function relations()
     {
         return array(
-            'connection' => array(self::BELONGS_TO, 'Ftp', 'ftp_id'),
+            'connection' => array(self::BELONGS_TO, 'Pma', 'pma_id'),
         );
     }
 
     /**
-     * @return FtpProject the static model class
+     * @return PmaProject the static model class
      */
     public static function model($className = __CLASS__)
     {
@@ -43,7 +43,7 @@ class FtpProject extends SiteConnectionRelation
 
     public function getConnectionIdFieldName()
     {
-        return 'ftp_id';
+        return 'pma_id';
     }
 
 }

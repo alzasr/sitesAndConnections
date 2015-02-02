@@ -8,9 +8,23 @@ class Project extends ActiveRecord
     public $url;
     protected $_table = 'project';
 
+    /**
+     * @var SiteHelper
+     */
+    private $_siteHelper;
+
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getSiteHelper(){
+        if(empty($this->_siteHelper)){
+            $this->_siteHelper = new SiteHelper();
+            $this->_siteHelper->setCacheDuration(3600);
+            $this->_siteHelper->setUrl($this->url);
+        }
+        return $this->_siteHelper;
     }
 
     public function rules()

@@ -10,6 +10,7 @@ class ProjectController extends Controller
 {
 
     private $_project;
+    private $_projectForm;
 
     public function actionIndex()
     {
@@ -19,13 +20,22 @@ class ProjectController extends Controller
 
     public function actionCreate()
     {
-        $projectForm = new ProjectForm();
+        $this->_projectForm = new ProjectForm();
         if (Yii::app()->request->isPostRequest) {
-            $this->updateAttributesFromPost($projectForm, false);
-            $project = $projectForm->create();
-            $this->redirect($this->createUrl('edit', array('project_id' => $project->id)));
+            $this->createProject();
         }
-        $this->render('create', compact('projectForm'));
+        $this->render('create', array('projectForm' => $this->_projectForm));
+    }
+
+    private function createProject()
+    {
+        try {
+            $this->updateAttributesFromPost($this->_projectForm, false);
+            $project = $this->_projectForm->create();
+            $this->redirect($this->createUrl('edit', array('project_id' => $project->id)));
+        } catch (Exception $ex) {
+
+        }
     }
 
     public function actionEdit($project_id)
@@ -50,7 +60,8 @@ class ProjectController extends Controller
 
     public function actionAppendConnection($project_id, $connection_type_id, $connection_id)
     {
-
+        $this->getConnection()->appendToProject($this->getProject());
+        $this->redirectReturnUrl();
     }
 
     /**
@@ -59,6 +70,14 @@ class ProjectController extends Controller
     private function getConnectionType()
     {
         return ConnectionType::model()->findByPk($this->getParam('connection_type_id'));
+    }
+
+    /**
+     * @return SiteConnection
+     */
+    private function getConnection()
+    {
+        return $this->getConnectionType()->getConnectionModel()->findByPk($this->getParam('connection_id'));
     }
 
     /**

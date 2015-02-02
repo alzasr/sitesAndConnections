@@ -22,8 +22,17 @@ $cs->registerCssFile('/vendor/fancybox/jquery.fancybox-1.3.4.css');
 </table>
 
 <h2>Подключения</h2>
-<?php foreach (ConnectionType::model()->findAll() as $connectionType) { ?>
-<h3><?= $connectionType ?>
-    <a href="<?= $this->createUrl('editConnectionList',array('project_id' => $project->id,'connection_type_id'=>$connectionType->id)) ?>"><span class="glyphicon glyphicon-plus" style="font-size: 18px"></span></a>
-</h3>
+<?php foreach (ConnectionType::model()->findAll() as $connectionType) { /* @var $connectionType ConnectionType */ ?>
+    <h3><?= $connectionType ?>
+        <a href="<?= $this->createUrl('editConnectionList', array('project_id' => $project->id, 'connection_type_id' => $connectionType->id)) ?>"><span class="glyphicon glyphicon-plus" style="font-size: 18px"></span></a>
+    </h3>
+    <?php $connections = $connectionType->getConnectionsByProject($project); ?>
+    <?php if (is_array($connections) && count($connections) > 0) { ?>
+        <table class="table">
+            <?php $this->renderPartial('edit_connectionHeader', array('connection' => $connections[0])) ?>
+            <?php foreach ($connections as $connection) { ?>
+                <?php $this->renderPartial('edit_connectionRow', compact('connection')) ?>
+            <?php } ?>
+        </table>
+    <?php } ?>
 <?php } ?>

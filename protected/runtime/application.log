@@ -3201,3 +3201,450 @@ REQUEST_URI=/index.php?r=project/editConnectionList&project_id=1&connection_type
 in D:\workspace\sites\protected\components\SiteConnectionRelation.php (15)
 in D:\workspace\sites\protected\models\ConnectionType.php (29)
 in D:\workspace\sites\protected\controllers\ProjectController.php (46)
+2015/01/30 14:20:49 [error] [php] Argument 1 passed to SiteConnectionRelation::connect() must be an instance of Project, string given, called in D:\workspace\sites\protected\components\SiteConnection.php on line 40 and defined (D:\workspace\sites\protected\components\SiteConnectionRelation.php:28)
+Stack trace:
+#0 unknown(0): ProjectController->actionAppendConnection()
+#1 D:\workspace\sites\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#2 D:\workspace\sites\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 D:\workspace\sites\framework\web\CController.php(286): ProjectController->runAction()
+#5 D:\workspace\sites\framework\web\CController.php(265): ProjectController->runActionWithFilters()
+#6 D:\workspace\sites\framework\web\CWebApplication.php(282): ProjectController->run()
+#7 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 d:\workspace\sites\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=project/appendConnection&project_id=1&connection_type_id=2&connection_id=1
+in D:\workspace\sites\protected\components\SiteConnectionRelation.php (28)
+in D:\workspace\sites\protected\components\SiteConnection.php (40)
+in D:\workspace\sites\protected\controllers\ProjectController.php (63)
+2015/01/30 14:24:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `prj_ftp_project` (`ftp_id`, `project_id`) VALUES (:yp0, :yp1).
+in D:\workspace\sites\protected\components\SiteConnectionRelation.php (33)
+in D:\workspace\sites\protected\components\SiteConnection.php (40)
+in D:\workspace\sites\protected\controllers\ProjectController.php (63)
+2015/01/30 14:24:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `prj_ftp_project` (`ftp_id`, `project_id`) VALUES (:yp0, :yp1)' in D:\workspace\sites\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\workspace\sites\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\workspace\sites\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\workspace\sites\protected\components\SiteConnectionRelation.php(33): CActiveRecord->save()
+#3 D:\workspace\sites\protected\components\SiteConnection.php(40): SiteConnectionRelation->connect(Object(Project), Object(Ftp))
+#4 D:\workspace\sites\protected\controllers\ProjectController.php(63): SiteConnection->appendToProject(Object(Project))
+#5 [internal function]: ProjectController->actionAppendConnection('1', '2', '1')
+#6 D:\workspace\sites\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#7 D:\workspace\sites\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectController), Object(ReflectionMethod), Array)
+#8 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('appendConnectio...')
+#12 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/appendC...')
+#13 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 d:\workspace\sites\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=project/appendConnection&project_id=1&connection_type_id=2&connection_id=1
+HTTP_REFERER=http://sites/index.php?r=project/editConnectionList&project_id=1&connection_type_id=2
+---
+2015/01/30 14:48:42 [error] [exception.CException] exception 'CException' with message 'ProjectController cannot find the requested view "edit_connetionHeader".' in D:\workspace\sites\framework\web\CController.php:878
+Stack trace:
+#0 D:\workspace\sites\protected\views\project\edit.php(32): CController->renderPartial('edit_connetionH...', Array)
+#1 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#2 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#3 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('edit', Array, true)
+#5 D:\workspace\sites\protected\controllers\ProjectController.php(51): CController->render('edit', Array)
+#6 [internal function]: ProjectController->actionEdit('1')
+#7 D:\workspace\sites\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#8 D:\workspace\sites\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectController), Object(ReflectionMethod), Array)
+#9 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('edit')
+#13 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/edit')
+#14 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 d:\workspace\sites\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=project/edit&project_id=1
+HTTP_REFERER=http://sites/index.php?r=project/index
+---
+2015/01/30 15:07:19 [error] [exception.CException] exception 'CException' with message 'ProjectController cannot find the requested view "index_connectionField".' in D:\workspace\sites\framework\web\CController.php:878
+Stack trace:
+#0 D:\workspace\sites\protected\views\project\index.php(26): CController->renderPartial('index_connectio...', Array)
+#1 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#2 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#3 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#5 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#6 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#7 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#11 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#12 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 d:\workspace\sites\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=project/edit&project_id=10
+---
+2015/01/30 15:10:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in D:\workspace\sites\framework\web\CController.php:483
+Stack trace:
+#0 D:\workspace\sites\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('connection/view')
+#3 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 d:\workspace\sites\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=connection/view&connection_type_id=2&conection_id=2
+HTTP_REFERER=http://sites/index.php?r=connection/create&connection_type_id=2
+---
+2015/01/30 15:11:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in D:\workspace\sites\framework\web\CController.php:483
+Stack trace:
+#0 D:\workspace\sites\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('connection/view')
+#3 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 d:\workspace\sites\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=connection/view&connection_type_id=2&conection_id=3
+HTTP_REFERER=http://sites/index.php?r=connection/create&connection_type_id=2
+---
+2015/01/30 15:12:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in D:\workspace\sites\framework\web\CController.php:483
+Stack trace:
+#0 D:\workspace\sites\framework\web\CController.php(270): CController->missingAction('view')
+#1 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('view')
+#2 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('connection/view')
+#3 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 d:\workspace\sites\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=connection/view&connection_type_id=2&conection_id=4
+HTTP_REFERER=http://sites/index.php?r=connection/create&connection_type_id=2
+---
+2015/01/30 15:31:10 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'prj_ftp' already exists. The SQL statement executed was: CREATE TABLE `prj_ftp` (
+	`id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+	`name` varchar(50) COMMENT 'Название для идентификации',
+	`host` varchar(100) COMMENT 'Хост',
+	`login` varchar(50) COMMENT 'Логин для доступа',
+	`password` varchar(50) COMMENT 'Пароль для доступа',
+	`port` int(11) DEFAULT NULL COMMENT 'Порт',
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1.
+2015/01/30 15:31:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'prj_ftp' already exists. The SQL statement executed was: CREATE TABLE `prj_ftp` (
+	`id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+	`name` varchar(50) COMMENT 'Название для идентификации',
+	`host` varchar(100) COMMENT 'Хост',
+	`login` varchar(50) COMMENT 'Логин для доступа',
+	`password` varchar(50) COMMENT 'Пароль для доступа',
+	`port` int(11) DEFAULT NULL COMMENT 'Порт',
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1' in D:\workspace\frameworks\yii\1\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\workspace\frameworks\yii\1\framework\db\CDbCommand.php(1324): CDbCommand->execute()
+#1 D:\workspace\frameworks\yii\1\framework\db\CDbMigration.php(233): CDbCommand->createTable('{{ftp}}', Array, 'ENGINE=InnoDB D...')
+#2 D:\workspace\sites\protected\migrations\m150130_112919_ssh.php(24): CDbMigration->createTable('{{ftp}}', Array, 'ENGINE=InnoDB D...')
+#3 D:\workspace\sites\protected\migrations\m150130_112919_ssh.php(10): m150130_112919_ssh->makeTable()
+#4 D:\workspace\frameworks\yii\1\framework\cli\commands\MigrateCommand.php(385): m150130_112919_ssh->up()
+#5 D:\workspace\frameworks\yii\1\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m150130_112919_...')
+#6 [internal function]: MigrateCommand->actionUp(Array)
+#7 D:\workspace\frameworks\yii\1\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#8 D:\workspace\frameworks\yii\1\framework\console\CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#9 D:\workspace\frameworks\yii\1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#10 D:\workspace\frameworks\yii\1\framework\base\CApplication.php(180): CConsoleApplication->processRequest()
+#11 D:\workspace\frameworks\yii\1\framework\yiic.php(33): CApplication->run()
+#12 D:\workspace\sites\protected\yiic.php(7): require_once('D:\workspace\fr...')
+#13 {main}
+---
+2015/01/30 15:55:31 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'ftp_id' doesn't exist in table. The SQL statement executed was: CREATE TABLE `prj_ssh_project` (
+	`ssh_id` int(11) NOT NULL COMMENT 'Идентификатор ssh',
+	`project_id` int(11) COMMENT 'Идентификатор проекта',
+	`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата создания',
+	PRIMARY KEY (`ftp_id`,`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8.
+2015/01/30 15:55:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1072 Key column 'ftp_id' doesn't exist in table. The SQL statement executed was: CREATE TABLE `prj_ssh_project` (
+	`ssh_id` int(11) NOT NULL COMMENT 'Идентификатор ssh',
+	`project_id` int(11) COMMENT 'Идентификатор проекта',
+	`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата создания',
+	PRIMARY KEY (`ftp_id`,`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8' in D:\workspace\frameworks\yii\1\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\workspace\frameworks\yii\1\framework\db\CDbCommand.php(1324): CDbCommand->execute()
+#1 D:\workspace\frameworks\yii\1\framework\db\CDbMigration.php(233): CDbCommand->createTable('{{ssh_project}}', Array, 'ENGINE=InnoDB D...')
+#2 D:\workspace\sites\protected\migrations\m150130_115442_ssh_project.php(21): CDbMigration->createTable('{{ssh_project}}', Array, 'ENGINE=InnoDB D...')
+#3 D:\workspace\sites\protected\migrations\m150130_115442_ssh_project.php(10): m150130_115442_ssh_project->makeTable()
+#4 D:\workspace\frameworks\yii\1\framework\cli\commands\MigrateCommand.php(385): m150130_115442_ssh_project->up()
+#5 D:\workspace\frameworks\yii\1\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m150130_115442_...')
+#6 [internal function]: MigrateCommand->actionUp(Array)
+#7 D:\workspace\frameworks\yii\1\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#8 D:\workspace\frameworks\yii\1\framework\console\CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#9 D:\workspace\frameworks\yii\1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#10 D:\workspace\frameworks\yii\1\framework\base\CApplication.php(180): CConsoleApplication->processRequest()
+#11 D:\workspace\frameworks\yii\1\framework\yiic.php(33): CApplication->run()
+#12 D:\workspace\sites\protected\yiic.php(7): require_once('D:\workspace\fr...')
+#13 {main}
+---
+2015/01/30 16:47:52 [error] [exception.CException] exception 'CException' with message 'Property "Pma.port" is not defined.' in D:\workspace\sites\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\workspace\sites\framework\db\ar\CActiveRecord.php(145): CComponent->__get('port')
+#1 D:\workspace\sites\framework\validators\CNumberValidator.php(78): CActiveRecord->__get('port')
+#2 D:\workspace\sites\framework\validators\CValidator.php(213): CNumberValidator->validateAttribute(Object(Pma), 'port')
+#3 D:\workspace\sites\framework\base\CModel.php(159): CValidator->validate(Object(Pma), NULL)
+#4 D:\workspace\sites\framework\db\ar\CActiveRecord.php(805): CModel->validate(NULL)
+#5 D:\workspace\sites\protected\components\ActiveRecordForm.php(33): CActiveRecord->save()
+#6 D:\workspace\sites\protected\controllers\ConnectionController.php(25): ActiveRecordForm->create()
+#7 D:\workspace\sites\protected\controllers\ConnectionController.php(15): ConnectionController->parsePost()
+#8 [internal function]: ConnectionController->actionCreate('4')
+#9 D:\workspace\sites\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ConnectionController), Array)
+#10 D:\workspace\sites\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ConnectionController), Object(ReflectionMethod), Array)
+#11 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('create')
+#15 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('connection/crea...')
+#16 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 d:\workspace\sites\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=connection/create&connection_type_id=4
+HTTP_REFERER=http://sites/index.php?r=connection/create&connection_type_id=4
+---
+2015/01/30 17:39:15 [error] [exception.CException] exception 'CException' with message 'ProjectController cannot find the requested view "connections.default".' in D:\workspace\sites\framework\web\CController.php:878
+Stack trace:
+#0 D:\workspace\sites\protected\views\project\index.php(26): CController->renderPartial('connections.def...', Array)
+#1 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#2 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#3 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#5 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#6 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#7 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#11 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#12 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 d:\workspace\sites\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=project/editConnectionList&project_id=10&connection_type_id=1
+---
+2015/01/30 17:54:34 [error] [exception.CException] exception 'CException' with message 'Property "ConnectionType.class" is not defined.' in D:\workspace\sites\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\workspace\sites\framework\db\ar\CActiveRecord.php(145): CComponent->__get('class')
+#1 D:\workspace\sites\protected\views\project\connections\default.php(11): CActiveRecord->__get('class')
+#2 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#3 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#5 D:\workspace\sites\protected\views\project\index.php(26): CController->renderPartial('connections/def...', Array)
+#6 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#7 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#8 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#9 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#10 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#11 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#12 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#16 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#17 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 d:\workspace\sites\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=connection/index
+---
+2015/01/30 17:55:03 [error] [exception.CException] exception 'CException' with message 'ProjectController cannot find the requested view "webAdmin".' in D:\workspace\sites\framework\web\CController.php:878
+Stack trace:
+#0 D:\workspace\sites\protected\views\project\connections\default.php(12): CController->renderPartial('webAdmin', Array)
+#1 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#2 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#3 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\protected\views\project\index.php(26): CController->renderPartial('connections/def...', Array)
+#5 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#6 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#7 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#8 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#9 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#10 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#11 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#15 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#16 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 d:\workspace\sites\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=connection/index
+---
+2015/01/30 17:55:34 [error] [exception.CException] exception 'CException' with message 'ProjectController cannot find the requested view ".webAdmin".' in D:\workspace\sites\framework\web\CController.php:878
+Stack trace:
+#0 D:\workspace\sites\protected\views\project\connections\default.php(12): CController->renderPartial('.webAdmin', Array)
+#1 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#2 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#3 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\protected\views\project\index.php(26): CController->renderPartial('connections/def...', Array)
+#5 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#6 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#7 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#8 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#9 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#10 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#11 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#15 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#16 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 d:\workspace\sites\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=connection/index
+---
+2015/01/30 17:55:40 [error] [exception.CException] exception 'CException' with message 'ProjectController cannot find the requested view "./webAdmin".' in D:\workspace\sites\framework\web\CController.php:878
+Stack trace:
+#0 D:\workspace\sites\protected\views\project\connections\default.php(12): CController->renderPartial('./webAdmin', Array)
+#1 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#2 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#3 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\protected\views\project\index.php(26): CController->renderPartial('connections/def...', Array)
+#5 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#6 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#7 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#8 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#9 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#10 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#11 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#15 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#16 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 d:\workspace\sites\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=connection/index
+---
+2015/01/30 17:56:13 [error] [exception.CException] exception 'CException' with message 'ProjectController cannot find the requested view "D:\workspace\sites\protected\views\project\connections/webAdmin.php".' in D:\workspace\sites\framework\web\CController.php:878
+Stack trace:
+#0 D:\workspace\sites\protected\views\project\connections\default.php(12): CController->renderPartial('D:\workspace\si...', Array)
+#1 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#2 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#3 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\protected\views\project\index.php(26): CController->renderPartial('connections/def...', Array)
+#5 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#6 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#7 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#8 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#9 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#10 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#11 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#15 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#16 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 d:\workspace\sites\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=connection/index
+---
+2015/01/30 18:05:43 [error] [exception.CException] exception 'CException' with message 'ProjectController cannot find the requested view "views.connections.webAdmin".' in D:\workspace\sites\framework\web\CController.php:878
+Stack trace:
+#0 D:\workspace\sites\protected\views\project\index_connection.php(12): CController->renderPartial('views.connectio...', Array)
+#1 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#2 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#3 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#4 D:\workspace\sites\protected\views\project\index.php(26): CController->renderPartial('index_connectio...', Array)
+#5 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#6 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#7 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#8 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#9 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#10 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#11 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#15 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#16 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 d:\workspace\sites\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=connection/index
+---
+2015/02/02 11:18:36 [error] [php] include(BaseModel.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\workspace\sites\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\workspace\sites\protected\models\CurlCache.php(4): spl_autoload_call()
+#1 D:\workspace\sites\framework\YiiBase.php(427): include()
+#2 unknown(0): autoload()
+#3 D:\workspace\sites\protected\models\SiteHelper.php(40): spl_autoload_call()
+#4 D:\workspace\sites\protected\models\SiteHelper.php(32): SiteHelper->loadFromCache()
+#5 D:\workspace\sites\protected\models\SiteHelper.php(17): SiteHelper->load()
+#6 D:\workspace\sites\protected\models\Project.php(18): SiteHelper->setUrl()
+#7 D:\workspace\sites\protected\views\project\index.php(22): Project->getHttpCode()
+#8 D:\workspace\sites\framework\web\CBaseController.php(126): require()
+#9 D:\workspace\sites\framework\web\CBaseController.php(95): ProjectController->renderInternal()
+#10 D:\workspace\sites\framework\web\CController.php(869): ProjectController->renderFile()
+#11 D:\workspace\sites\framework\web\CController.php(782): ProjectController->renderPartial()
+#12 D:\workspace\sites\protected\controllers\ProjectController.php(18): ProjectController->render()
+#13 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#14 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams()
+#15 D:\workspace\sites\framework\web\CController.php(286): ProjectController->runAction()
+#16 D:\workspace\sites\framework\web\CController.php(265): ProjectController->runActionWithFilters()
+#17 D:\workspace\sites\framework\web\CWebApplication.php(282): ProjectController->run()
+#18 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 d:\workspace\sites\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=project/index
+in D:\workspace\sites\protected\models\CurlCache.php (4)
+in D:\workspace\sites\protected\models\SiteHelper.php (40)
+in D:\workspace\sites\protected\models\SiteHelper.php (32)
+2015/02/02 11:19:13 [error] [exception.CException] exception 'CException' with message 'CurlCache and its behaviors do not have a method or closure named "addEqualCondition".' in D:\workspace\sites\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\workspace\sites\framework\db\ar\CActiveRecord.php(227): CComponent->__call('addEqualConditi...', Array)
+#1 D:\workspace\sites\protected\models\CurlCache.php(27): CActiveRecord->__call('addEqualConditi...', Array)
+#2 D:\workspace\sites\protected\models\CurlCache.php(27): CurlCache->addEqualCondition('url_md5', '8eb5c51315cdb57...')
+#3 D:\workspace\sites\protected\models\CurlCache.php(20): CurlCache->byUrl('http://kryshikr...')
+#4 D:\workspace\sites\protected\models\SiteHelper.php(40): CurlCache::get('http://kryshikr...')
+#5 D:\workspace\sites\protected\models\SiteHelper.php(32): SiteHelper->loadFromCache()
+#6 D:\workspace\sites\protected\models\SiteHelper.php(17): SiteHelper->load()
+#7 D:\workspace\sites\protected\models\Project.php(18): SiteHelper->setUrl('http://kryshikr...')
+#8 D:\workspace\sites\protected\views\project\index.php(22): Project->getHttpCode()
+#9 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#10 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#11 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#12 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#13 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#14 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#15 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#19 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#20 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 d:\workspace\sites\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=project/edit&project_id=16
+---
+2015/02/02 11:20:30 [error] [exception.CException] exception 'CException' with message 'Property "CurlHelper.followlocation" is not defined.' in D:\workspace\sites\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\workspace\sites\protected\models\SiteHelper.php(63): CComponent->__set('followlocation', false)
+#1 D:\workspace\sites\protected\models\SiteHelper.php(52): SiteHelper->initCurl()
+#2 D:\workspace\sites\protected\models\SiteHelper.php(33): SiteHelper->loadFromNet()
+#3 D:\workspace\sites\protected\models\SiteHelper.php(17): SiteHelper->load()
+#4 D:\workspace\sites\protected\models\Project.php(18): SiteHelper->setUrl('http://kryshikr...')
+#5 D:\workspace\sites\protected\views\project\index.php(22): Project->getHttpCode()
+#6 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\workspace\si...')
+#7 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\workspace\si...', Array, true)
+#8 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\workspace\si...', Array, true)
+#9 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#10 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#11 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#12 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#16 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#17 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 d:\workspace\sites\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=project/edit&project_id=16
+---

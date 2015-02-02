@@ -15,5 +15,10 @@ class ConnectionTypeForm extends ActiveRecordForm{
         return parent::create();
     }
 
+    public function getModelClassName()
+    {
+       return 'ConnectionType';
+    }
+
 }
 

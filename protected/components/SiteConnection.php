@@ -30,12 +30,15 @@ abstract class SiteConnection extends ActiveRecord
 
     final function getProjectRelationModel()
     {
-        return call_user_func($this->getProjectRelationModel() . '::model');
+        return call_user_func($this->getProjectRelationModelName() . '::model');
     }
 
     final function appendToProject(Project $project)
     {
-        
+        $relationModelName = $this->getProjectRelationModel();
+        $relation = new $relationModelName(); /* @var $relation SiteConnectionRelation */
+        $relation->connect($project, $this);
+
     }
 
     final public function getFormModel()
