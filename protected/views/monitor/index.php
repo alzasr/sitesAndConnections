@@ -29,6 +29,11 @@
     #monitor .item.code-403{
         background-color: yellow;
     }
+    #monitor .item.code-504{
+        background-color: red;
+        color:white;
+        font-weight: bold;
+    }
 </style>
 <div id="monitor">
     <div class="data">
@@ -40,8 +45,9 @@
         <ul>
             <li><span class="item">Доступен</span></li>
             <li><span class="item code-301">Переехал</span></li>
-            <li><span class="item code-404">Недоступен</span></li>
+            <li><span class="item code-404">Страница не найдена</span></li>
             <li><span class="item code-403">Заблокирован</span></li>
+            <li><span class="item code-504">Сервер не отвечает</span></li>
         </ul>
     </div>
 </div>

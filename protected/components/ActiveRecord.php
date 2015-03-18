@@ -52,10 +52,14 @@ class ActiveRecord extends CActiveRecord
         return $this;
     }
 
-    public static function enumItem($attribute)
+    public function enumItem($attribute)
     {
         $matches = array();
-        preg_match('/\((.*)\)/', static::model()->tableSchema->columns[$attribute]->dbType, $matches);
+        $type = $this->tableSchema->columns[$attribute]->dbType;
+        if(stripos($type,'enum') !== 0 ){
+            return array();
+        }
+        preg_match('/\((.*)\)/', $type, $matches);
         foreach (explode("','", $matches[1]) as $value) {
             $value = str_replace("'", null, $value);
             $values[$value] = Yii::t('enumItem', $value);

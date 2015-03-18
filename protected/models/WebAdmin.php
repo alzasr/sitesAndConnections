@@ -8,6 +8,7 @@ class WebAdmin extends SiteConnection
     public $url;
     public $login;
     public $password;
+    public $type;
     protected $_table = 'web_admin';
 
     public function rules()
@@ -15,6 +16,7 @@ class WebAdmin extends SiteConnection
         return array(
             array('name, login, password', 'length', 'max'=>50),
             array('url', 'length', 'max'=>100),
+            array('type','safe'),
             array('id, name, url, login, password', 'safe', 'on'=>'search'),
         );
     }

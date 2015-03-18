@@ -18,8 +18,9 @@ class Project extends ActiveRecord
         return $this->name;
     }
 
-    public function getSiteHelper(){
-        if(empty($this->_siteHelper)){
+    public function getSiteHelper()
+    {
+        if (empty($this->_siteHelper)) {
             $this->_siteHelper = new SiteHelper();
             $this->_siteHelper->setCacheDuration(3600);
             $this->_siteHelper->setUrl($this->url);
@@ -30,9 +31,9 @@ class Project extends ActiveRecord
     public function rules()
     {
         return array(
-            array('name', 'length', 'max'=>50),
-            array('url', 'length', 'max'=>100),
-            array('id, name, url', 'safe', 'on'=>'search'),
+            array('name', 'length', 'max' => 50),
+            array('url', 'length', 'max' => 100),
+            array('id, name, url', 'safe', 'on' => 'search'),
         );
     }
 
@@ -45,12 +46,19 @@ class Project extends ActiveRecord
         );
     }
 
+    public function defaultScope()
+    {
+        return array(
+            'order' => $this->tableAlias . '.name'
+        );
+    }
 
     /**
      * @return Project the static model class
      */
-    public static function model($className=__CLASS__)
+    public static function model($className = __CLASS__)
     {
         return parent::model($className);
     }
+
 }

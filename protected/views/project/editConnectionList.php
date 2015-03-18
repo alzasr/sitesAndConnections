@@ -8,7 +8,7 @@
     <h2>Подключенные</h2>
     <table>
         <?php foreach ($type->getConnectionsByProject($project) as $connection) { ?>
-            <tr><th><?= $connection ?> <a href=""><span class="glyphicon glyphicon-minus"></span></a></th></tr>
+            <tr><th><?= $connection ?> <a href="<?= $this->createUrl('removeConnection', array('project_id' => $project->id, 'connection_type_id' => $type->id, 'connection_id' => $connection->id)) ?>"><span class="glyphicon glyphicon-minus"></span></a></th></tr>
         <?php } ?>
     </table>
 </div>

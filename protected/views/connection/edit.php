@@ -1,10 +1,12 @@
 <?php
 /* @var $this ConnectionController */
 /* @var $type ConnectionType */
+/* @var $connection SiteConnection */
 $connectionModel = $type->getConnectionModel();
 $formModel = $connectionModel->getFormModel();
+$formModel->setModel($connection);
 ?>
-<h1>Создание подключения типа <?= $type ?></h1>
+<h1>Редактирование подключения "<?= $connection->getName() ?>" типа "<?= $type ?>"</h1>
 <style>
     input[type=text],select{
         width: 90%;

@@ -4,7 +4,7 @@ class PmaForm extends ActiveRecordForm
 {
 
     public $name;
-    public $host;
+    public $url;
     public $login;
     public $password;
     public $server;
@@ -13,7 +13,7 @@ class PmaForm extends ActiveRecordForm
     {
         return array(
             'name' => 'Название для идентификации',
-            'host' => 'Хост',
+            'url' => 'Адрес',
             'login' => 'Логин для доступа',
             'password' => 'Пароль для доступа',
             'server' => 'Сервер',

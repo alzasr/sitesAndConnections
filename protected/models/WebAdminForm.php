@@ -7,6 +7,7 @@ class WebAdminForm extends ActiveRecordForm
     public $url;
     public $login;
     public $password;
+    public $type;
 
     public function attributeLabels()
     {
@@ -15,6 +16,7 @@ class WebAdminForm extends ActiveRecordForm
             'url' => 'Адрес веб админки',
             'login' => 'Логин для доступа',
             'password' => 'Пароль для доступа',
+            'type' => 'Тип',
         );
     }
 

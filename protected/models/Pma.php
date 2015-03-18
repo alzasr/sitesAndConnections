@@ -5,7 +5,7 @@ class Pma extends SiteConnection
 
     public $id;
     public $name;
-    public $host;
+    public $url;
     public $login;
     public $password;
     public $server;
@@ -15,7 +15,7 @@ class Pma extends SiteConnection
     {
         return array(
             array('name, login, password', 'length', 'max'=>50),
-            array('host', 'length', 'max'=>100),
+            array('url', 'length', 'max'=>100),
         );
     }
 

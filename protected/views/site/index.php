@@ -15,3 +15,28 @@
         </td>
     </tr>
 </table>
+<script>
+    $(function () {
+        jQuery(document).ready(function () {
+            jQuery.ajax({
+                type: "GET",
+                url: "http://ipgeobase.ru:7020/geo?ip=89.107.39.118",
+                dataType: "xml",
+                success: function (xml) {
+                    jQuery(xml).find("ip").each(
+                            function ()
+                            {
+                                var city = jQuery(this).find("city").text(),
+                                        region = jQuery(this).find("region").text();
+                                if (city != region) {
+                                    ipg = city + ", " + region;
+                                } else {
+                                    ipg = city;
+                                }
+                                console.log(ipg);
+                            });
+                }
+            });
+        });
+    });
+</script>

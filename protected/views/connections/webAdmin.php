@@ -10,7 +10,6 @@ if ($connection->url == 'https://cp.beget.ru/') {
         <input type="submit" type="button" value="<?= $connection ?>" />
         <input type="hidden" name="submit" />
     </form>
-    <?php
-}else{
-    echo $connection;
-}
+<?php } else { ?>
+    <a href="<?= $connection->url ?>" target="_blank"><?= $connection ?></a>
+<?php } ?>

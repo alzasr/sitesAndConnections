@@ -146,12 +146,11 @@ class CurlHelper extends CFormModel
         $this->_body = curl_exec($this->_curl);
         $this->_timeExecute = microtime(true) - $startTime;
         $this->_info = curl_getinfo($this->_curl);
-        if($this->timeout && $this->_timeExecute > $this->timeout){
-            $this->_info['http_code'] = 503;
+        if(($this->timeout && $this->_timeExecute >= $this->timeout) || $this->_info['http_code'] == 0){
+            $this->_info['http_code'] = 504;
         }
         $this->_errno = curl_errno($this->_curl);
         $this->_error = curl_error($this->_curl);
-
         return $this->is200();
     }
 

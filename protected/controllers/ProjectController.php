@@ -64,6 +64,12 @@ class ProjectController extends Controller
         $this->redirectReturnUrl();
     }
 
+    public function actionRemoveConnection($project_id, $connection_type_id, $connection_id)
+    {
+        $this->getConnection()->removeFromProject($this->getProject());
+        $this->redirectReturnUrl();
+    }
+
     /**
      * @return ConnectionType
      */

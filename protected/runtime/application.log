@@ -3648,3 +3648,95 @@ Stack trace:
 REQUEST_URI=/index.php?r=project/index
 HTTP_REFERER=http://sites/index.php?r=project/edit&project_id=16
 ---
+2015/02/05 17:16:47 [error] [php] include(WebAdmin.php): failed to open stream: No such file or directory (D:\workspace\frameworks\yii\1\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\workspace\sites\protected\migrations\m150205_131232_web_admin_alter_table.php(7): spl_autoload_call()
+#1 D:\workspace\frameworks\yii\1\framework\cli\commands\MigrateCommand.php(385): m150205_131232_web_admin_alter_table->up()
+#2 D:\workspace\frameworks\yii\1\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp()
+#3 unknown(0): MigrateCommand->actionUp()
+#4 D:\workspace\frameworks\yii\1\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs()
+#5 D:\workspace\frameworks\yii\1\framework\console\CConsoleCommandRunner.php(71): MigrateCommand->run()
+#6 D:\workspace\frameworks\yii\1\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#7 D:\workspace\frameworks\yii\1\framework\base\CApplication.php(180): CConsoleApplication->processRequest()
+#8 D:\workspace\frameworks\yii\1\framework\yiic.php(33): CConsoleApplication->run()
+#9 D:\workspace\sites\protected\yiic.php(7): require_once()
+
+2015/02/16 13:50:55 [error] [php] include(WpAdmin.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (D:\workspace\sites\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\workspace\sites\framework\db\ar\CActiveRecord.php(395): spl_autoload_call()
+#1 D:\workspace\sites\framework\db\ar\CActiveFinder.php(182): model()
+#2 D:\workspace\sites\framework\db\ar\CActiveFinder.php(230): CActiveFinder->getModel()
+#3 D:\workspace\sites\framework\db\ar\CActiveFinder.php(296): CActiveFinder->buildJoinTree()
+#4 D:\workspace\sites\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree()
+#5 D:\workspace\sites\framework\db\ar\CActiveRecord.php(909): CActiveFinder->__construct()
+#6 D:\workspace\sites\framework\db\ar\CActiveRecord.php(1355): WpProject->getActiveFinder()
+#7 D:\workspace\sites\framework\db\ar\CActiveRecord.php(1536): WpProject->query()
+#8 D:\workspace\sites\protected\components\SiteConnectionRelation.php(21): WpProject->findAllByAttributes()
+#9 D:\workspace\sites\protected\models\ConnectionType.php(29): WpProject->findConnectionsByProject()
+#10 D:\workspace\sites\protected\views\project\index.php(40): ConnectionType->getConnectionsByProject()
+#11 D:\workspace\sites\framework\web\CBaseController.php(126): require()
+#12 D:\workspace\sites\framework\web\CBaseController.php(95): ProjectController->renderInternal()
+#13 D:\workspace\sites\framework\web\CController.php(869): ProjectController->renderFile()
+#14 D:\workspace\sites\framework\web\CController.php(782): ProjectController->renderPartial()
+#15 D:\workspace\sites\protected\controllers\ProjectController.php(18): ProjectController->render()
+#16 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#17 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 D:\workspace\sites\framework\web\CController.php(286): ProjectController->runAction()
+#19 D:\workspace\sites\framework\web\CController.php(265): ProjectController->runActionWithFilters()
+#20 D:\workspace\sites\framework\web\CWebApplication.php(282): ProjectController->run()
+#21 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 d:\workspace\sites\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=project/index
+in D:\workspace\sites\protected\components\SiteConnectionRelation.php (21)
+in D:\workspace\sites\protected\models\ConnectionType.php (29)
+in D:\workspace\sites\protected\views\project\index.php (40)
+2015/02/16 14:27:08 [error] [exception.CException] exception 'CException' with message 'Property "Pma.host" is not defined.' in D:\workspace\sites\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\workspace\sites\framework\db\ar\CActiveRecord.php(145): CComponent->__get('host')
+#1 D:\workspace\sites\framework\validators\CStringValidator.php(79): CActiveRecord->__get('host')
+#2 D:\workspace\sites\framework\validators\CValidator.php(213): CStringValidator->validateAttribute(Object(Pma), 'host')
+#3 D:\workspace\sites\framework\base\CModel.php(159): CValidator->validate(Object(Pma), NULL)
+#4 D:\workspace\sites\framework\db\ar\CActiveRecord.php(805): CModel->validate(NULL)
+#5 D:\workspace\sites\protected\components\ActiveRecordForm.php(33): CActiveRecord->save()
+#6 D:\workspace\sites\protected\controllers\ConnectionController.php(26): ActiveRecordForm->create()
+#7 D:\workspace\sites\protected\controllers\ConnectionController.php(16): ConnectionController->createFromPost()
+#8 [internal function]: ConnectionController->actionCreate('4')
+#9 D:\workspace\sites\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ConnectionController), Array)
+#10 D:\workspace\sites\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ConnectionController), Object(ReflectionMethod), Array)
+#11 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('create')
+#15 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('connection/crea...')
+#16 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 d:\workspace\sites\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=connection/create&connection_type_id=4
+HTTP_REFERER=http://sites/index.php?r=connection/create&connection_type_id=4
+---
+2015/03/17 10:14:21 [error] [exception.CException] exception 'CException' with message 'Property "Ftp.url" is not defined.' in D:\workspace\sites\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\workspace\sites\framework\db\ar\CActiveRecord.php(145): CComponent->__get('url')
+#1 D:\workspace\sites\protected\views\project\index_connection.php(14): CActiveRecord->__get('url')
+#2 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\\workspace\\si...')
+#3 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\workspace\\si...', Array, true)
+#4 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\\workspace\\si...', Array, true)
+#5 D:\workspace\sites\protected\views\project\index.php(40): CController->renderPartial('index_connectio...', Array)
+#6 D:\workspace\sites\framework\web\CBaseController.php(126): require('D:\\workspace\\si...')
+#7 D:\workspace\sites\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\\workspace\\si...', Array, true)
+#8 D:\workspace\sites\framework\web\CController.php(869): CBaseController->renderFile('D:\\workspace\\si...', Array, true)
+#9 D:\workspace\sites\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#10 D:\workspace\sites\protected\controllers\ProjectController.php(18): CController->render('index', Array)
+#11 D:\workspace\sites\framework\web\actions\CInlineAction.php(49): ProjectController->actionIndex()
+#12 D:\workspace\sites\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\workspace\sites\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 D:\workspace\sites\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\workspace\sites\framework\web\CWebApplication.php(282): CController->run('index')
+#16 D:\workspace\sites\framework\web\CWebApplication.php(141): CWebApplication->runController('project/index')
+#17 D:\workspace\sites\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 d:\workspace\sites\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=project/index
+HTTP_REFERER=http://sites/index.php?r=project/editConnectionList&project_id=23&connection_type_id=3
+---

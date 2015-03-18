@@ -6,6 +6,14 @@
 class Controller extends CController
 {
 
+    public function init()
+    {
+        if(Yii::app()->request->isAjaxRequest){
+            $this->layout = false;
+        }
+        return parent::init();
+    }
+
     public function filters()
     {
         return array(

@@ -4,7 +4,6 @@
 $formModel = $connection->getFormModel()
 ?>
 <tr>
-    <td><?= $connection ?></td>
     <?php foreach ($formModel->getAttributes() as $attribute => $value) { ?>
         <td><?= $value ?></td>
     <?php } ?>

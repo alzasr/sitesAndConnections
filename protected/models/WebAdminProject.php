@@ -12,18 +12,8 @@ class WebAdminProject extends SiteConnectionRelation
     public function rules()
     {
         return array(
-            array('web_admin_id', 'required'),
+            array('web_admin_id, project_id', 'required'),
             array('web_admin_id, project_id', 'numerical', 'integerOnly'=>true),
-            array('web_admin_id, project_id, created', 'safe', 'on'=>'search'),
-        );
-    }
-
-    public function attributeLabels()
-    {
-        return array(
-            'web_admin_id' => 'Идентификатор вебадминки',
-            'project_id' => 'Идентификатор проекта',
-            'created' => 'Дата создания',
         );
     }
 

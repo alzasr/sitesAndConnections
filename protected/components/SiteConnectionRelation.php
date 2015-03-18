@@ -27,17 +27,31 @@ abstract class SiteConnectionRelation extends ActiveRecord
 
     public function connect(Project $project, SiteConnection $connection)
     {
-        $relation = $this->findByAttributes(array(
-            $this->getProjectIdFieldName() => $project->id,
-            $this->getConnectionIdFieldName() => $connection->getId()
-        ));
-        if(!empty($relation)){
+        $relation = $this->findByProjectAndConnection($project, $connection);
+        if (!empty($relation)) {
             return true;
         }
         $relation = new static;
         $relation->setConnectionId($connection->getId());
         $relation->setProjectId($project->id);
         return $relation->save();
+    }
+
+    public function disconnect(Project $project, SiteConnection $connection)
+    {
+        $relation = $this->findByProjectAndConnection($project, $connection);
+        if (empty($relation)) {
+            return true;
+        }
+        return $relation->delete();
+    }
+
+    public function findByProjectAndConnection(Project $project, SiteConnection $connection)
+    {
+        return $this->findByAttributes(array(
+                    $this->getProjectIdFieldName() => $project->id,
+                    $this->getConnectionIdFieldName() => $connection->getId()
+        ));
     }
 
     public function setProjectId($project_id)
